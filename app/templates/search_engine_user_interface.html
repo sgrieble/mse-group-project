@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tübingen Search Enginge</title>
+    <title>Tübingen Search Engine</title>
     <style>
         body {
             display: flex;
@@ -16,23 +16,26 @@
         }
         h1 {
             color: darkgray;
-            padding: 1em;
+            padding: 0px;
         }
         form {
             text-align: center;
         }
         input[type="text"] {
-            width: 300px;
+            width: 550px;
+            height: 35px;
             padding: 10px;
-            font-size: 16px;
+            margin: 20px;
+            font-size: 18px;
             border: none;
             border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
             outline: none;
         }
     </style>
 </head>
 <body>
+    <img src="static/images/logo1.jpg" alt="logo" width="200" style="opacity:0.4">    
     <h1>Tübingen Search Engine</h1>
     <form action="/serp" method="post">
         <input type="text" id="name" name="name" placeholder="Search info about Tübingen" required>
