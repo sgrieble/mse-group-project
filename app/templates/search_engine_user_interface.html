@@ -4,41 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tübingen Search Engine</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            color: darkgray;
-            padding: 0px;
-        }
-        form {
-            text-align: center;
-        }
-        input[type="text"] {
-            width: 550px;
-            height: 35px;
-            padding: 10px;
-            margin: 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 4px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-            outline: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_interface.css') }}">
 </head>
 <body>
-    <img src="static/images/logo1.jpg" alt="logo" width="200" style="opacity:0.4">    
-    <h1>Tübingen Search Engine</h1>
-    <form action="/serp" method="post">
-        <input type="text" id="query" name="query" placeholder="Search info about Tübingen" required>
-    </form>
+    {% include 'header.html' %}
 </body>
 </html>

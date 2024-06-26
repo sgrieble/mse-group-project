@@ -4,59 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tübingen Search Engine</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            text-align: center;
-            color: darkgray;
-            padding: 0px;
-        }
-        form {
-            text-align: center;
-        }
-        input[type="text"] {
-            width: 550px;
-            height: 35px;
-            padding: 10px;
-            margin: 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 4px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-            outline: none;
-        }
-        .result {
-            margin-left: 10px;
-            padding: 10px;
-            text-align: left;
-        }
-        .serp {
-            padding: 10px;
-        }
-        .logo {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_interface.css') }}">
 </head>
 <body>
-    <img src="static/images/logo1.jpg" alt="logo" width="200" style="opacity:0.4" class="logo">    
-    <h1>Tübingen Search Engine</h1>
-    <form action="/serp" method="post">
-        <input type="text" id="query" name="query" placeholder="Search info about Tübingen" value="{{query}}" required>
-    </form>
+    {% include 'header.html' %}
     <div class="serp">
             {% for result in result_list %}
             <div class="result">
-                <a href="{{result['link']}}">{{result['title']}}</a><br>
+                <a class="link" href="{{result['link']}}">{{result['title']}}</a><br>
                 <p>{{result['content'][:400]}}...</p>
             </div>
             {% endfor %}
