@@ -1,24 +1,35 @@
 <div class="chat">
-    <div class="speech-bubble">
-        <p class="intro-categories">
-            Hi there, do you want to explore all the gorgeous information 
-            about Tübingen but you don't know where to start?
-            No problem! I am Hölderlin, one of Tübingen's most famous
-            poets, and more than happy to show you around.
-        </p>
-        <div class="categories">
-            <button class="nav-button" onclick="showSubcategories('history')">History & Culture</button>
-            <button class="nav-button" onclick="showSubcategories('education')">Education</button>
-            <button class="nav-button" onclick="showSubcategories('sightseeing')">Sightseeing & Leisure</button>
-            <button class="nav-button" onclick="showSubcategories('food')">Food & Drinks</button>
-        </div>
-        <div class="subcategories">
-            <p class="intro-subcategories">Intro to subcategories</p>
-            <button class="nav-button" onclick="showSubcategories('history')">History & Culture</button>
-            <button class="nav-button" onclick="showSubcategories('education')">Education</button>
-            <button class="nav-button" onclick="showSubcategories('sightseeing')">Sightseeing & Leisure</button>
-            <button class="nav-button" onclick="showSubcategories('food')">Food & Drinks</button>
+    <div class="speech-bubble" id="speech-bubble">
+        <button class="close-button" onclick="hideSpeechBubble()">x</button>
+        <div class="speech-bubble-content">
+            <p class="intro-categories">
+                Hi there, do you want to explore all the gorgeous information 
+                about Tübingen but you don't know where to start?
+                No problem! I am Hölderlin, one of Tübingen's most famous
+                poets, and more than happy to show you around.
+            </p>
+            <div class="categories">
+                <button class="nav-button" onclick="showSubcategories('history')">History & Culture</button>
+                <button class="nav-button" onclick="showSubcategories('education')">Education</button>
+                <button class="nav-button" onclick="showSubcategories('sightseeing')">Sightseeing & Leisure</button>
+                <button class="nav-button" onclick="showSubcategories('food')">Food & Drinks</button>
+            </div>
+            <div class="subcategories">
+                <p class="intro-subcategories">Intro to subcategories</p>
+                <button class="nav-button" onclick="showSubcategories('history')">History & Culture</button>
+                <button class="nav-button" onclick="showSubcategories('education')">Education</button>
+                <button class="nav-button" onclick="showSubcategories('sightseeing')">Sightseeing & Leisure</button>
+                <button class="nav-button" onclick="showSubcategories('food')">Food & Drinks</button>
+            </div>
         </div>
     </div>
-    <img class="hoelderlin" src="{{ 'static/images/hoelderlin.jpg' }}" alt="Hölderlin">
+    <img class="hoelderlin" src="{{ 'static/images/hoelderlin.jpg' }}" alt="Hölderlin" onclick="showSpeechBubble()">
 </div>
+<script>
+    function hideSpeechBubble() {
+        document.getElementById('speech-bubble').style.display = 'none';
+    }
+    function showSpeechBubble() {
+        document.getElementById('speech-bubble').style.display = 'initial';
+    }
+</script>
