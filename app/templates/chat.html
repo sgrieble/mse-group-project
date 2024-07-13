@@ -8,30 +8,79 @@
                 No problem! I am Hölderlin, one of Tübingen's most famous
                 poets, and more than happy to show you around.
             </p>
-            <div class="categories">
+            <div class="categories" id="categories">
                 <button class="nav-button" onclick="showSubcategories('history')">History & Culture</button>
                 <button class="nav-button" onclick="showSubcategories('education')">Education</button>
                 <button class="nav-button" onclick="showSubcategories('sightseeing')">Sightseeing & Leisure</button>
                 <button class="nav-button" onclick="showSubcategories('food')">Food & Drinks</button>
             </div>
-            <p class="intro-categories">
-                Intro to subcategories
-            </p>
-            <div class="categories">
-                <button class="nav-button" onclick="showSubcategories('history')">History & Culture</button>
-                <button class="nav-button" onclick="showSubcategories('education')">Education</button>
-                <button class="nav-button" onclick="showSubcategories('sightseeing')">Sightseeing & Leisure</button>
-                <button class="nav-button" onclick="showSubcategories('food')">Food & Drinks</button>
+            <p class="intro-categories" id="intro-subcategories"></p>
+            <div class="categories" id="history">
+                <button class="nav-button" onclick="showSubcategories('history')">History</button>
+                <button class="nav-button" onclick="showSubcategories('museums')">Museums</button>
+                <button class="nav-button" onclick="showSubcategories('theater')">Theater</button>
+                <button class="nav-button" onclick="showSubcategories('concerts')">Concerts</button>
+            </div>
+            <div class="categories" id="education">
+                <button class="nav-button" onclick="showSubcategories('university')">University</button>
+                <button class="nav-button" onclick="showSubcategories('research')">Research Institutes</button>
+                <button class="nav-button" onclick="showSubcategories('events')">Academic Events</button>
+                <button class="nav-button" onclick="showSubcategories('libraries')">Libraries</button>
+            </div>
+            <div class="categories" id="sightseeing">
+                <button class="nav-button" onclick="showSubcategories('town')">Old Town</button>
+                <button class="nav-button" onclick="showSubcategories('castles')">Castles</button>
+                <button class="nav-button" onclick="showSubcategories('stockerkahn')">Stocherkahn</button>
+                <button class="nav-button" onclick="showSubcategories('garden')">Botanical Garden</button>
+            </div>
+            <div class="categories" id="food">
+                <button class="nav-button" onclick="showSubcategories('restaurants')">Restaurants</button>
+                <button class="nav-button" onclick="showSubcategories('cafes')">Cafés</button>
+                <button class="nav-button" onclick="showSubcategories('schokomarkt')">Schokomarkt</button>
+                <button class="nav-button" onclick="showSubcategories('markets')">Markets</button>
             </div>
         </div>
     </div>
     <img class="hoelderlin" src="{{ 'static/images/hoelderlin.jpg' }}" alt="Hölderlin" onclick="showSpeechBubble()">
 </div>
 <script>
+    document.getElementById('categories').style.display = 'flex';
+    const categories = ['history', 'education', 'sightseeing', 'food'];
+    const introHistory = "Welcome to the history and culture of Tübingen! There is a lot to see and do in Tübingen. You can explore the town's rich history, visit museums like the Stadtmuseum and the Hölderlinturm, enjoy performances at the Landestheater Tübingen, and attend concerts at venues like the Sudhaus.";
+    const introEducation = "Home to the renowned University of Tübingen, this city has long been a hub of academic excellence. From pioneering research at the Max Planck Institute for Intelligent Systems and the Cyber Valley for Artificial Intelligence to dynamic public lectures through Studium Generale, Tübingen invites you to explore a world of knowledge and innovation. As an Excellence University, Tübingen continues to lead in research and education.";
+    const introSightseeing = "Tübingen is full of sights and leisure activities, and I'm here to guide you! From the historic Old Town with its beautiful half-timbered houses to the grand Hohentübingen Castle, the unique Stocherkahn boat rides on the Neckar River, and the peaceful Botanical Garden, there's a lot to see and do.";
+    const introFood = "Are you ready to enjoy Tübingen's food scene? As Hölderlin, I'm here to guide you through the town's diverse restaurants, charming cafés, the vibrant local markets, and the delicious treats at the annual Schokomarkt. The Schokomarkt, held in December, is a chocolate lover's paradise with a variety of artisanal chocolates and sweets.";
+    const introSearchButtons = "Click on one of the buttons to start a web search.";
+
     function hideSpeechBubble() {
         document.getElementById('speech-bubble').style.display = 'none';
     }
+
     function showSpeechBubble() {
         document.getElementById('speech-bubble').style.display = 'initial';
+    }
+
+    function showSubcategories(cat) {
+        for (const c of categories) {
+            document.getElementById(c).style.display = 'none';
+        }
+        var intro;
+        switch (cat) {
+            case 'history':
+                intro = introHistory;
+                break;
+            case 'education':
+                intro = introEducation;
+                break;
+            case 'sightseeing':
+                intro = introSightseeing;
+                break;
+            case 'food':
+                intro = introFood;
+                break;
+        }
+        intro = intro + "<br><br>" + introSearchButtons;
+        document.getElementById('intro-subcategories').innerHTML = intro;
+        document.getElementById(cat).style.display = 'flex';
     }
 </script>
