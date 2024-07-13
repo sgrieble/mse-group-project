@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/user_interface.css') }}">
 </head>
 <body>
-    {% include 'header.html' %}
+    <div class="header">
+        <img src="{{ 'static/images/logo3.jpg' }}" alt="logo" width="200" style="opacity:0.5">    
+        <h1>Tübingen Search Engine</h1>
+        <form action="/serp" method="post">
+            <input class="search-bar" type="text" id="query" name="query" placeholder="Search info about Tübingen" value="{{query}}" required>
+        </form>
+    </div>
     <div class="serp">
             {% for result in result_list %}
             <div class="result">

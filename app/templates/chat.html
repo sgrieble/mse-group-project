@@ -16,28 +16,76 @@
             </div>
             <p class="intro-categories" id="intro-subcategories"></p>
             <div class="categories" id="history">
-                <button class="nav-button" onclick="showSubcategories('history')">History</button>
-                <button class="nav-button" onclick="showSubcategories('museums')">Museums</button>
-                <button class="nav-button" onclick="showSubcategories('theater')">Theater</button>
-                <button class="nav-button" onclick="showSubcategories('concerts')">Concerts</button>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="history" style="display: none;">
+                    <input class="nav-button" type="submit" value="History">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="museums" style="display: none;">
+                    <input class="nav-button" type="submit" value="Museums">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="theater" style="display: none;">
+                    <input class="nav-button" type="submit" value="Theater">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="concerts" style="display: none;">
+                    <input class="nav-button" type="submit" value="Concerts">
+                </form>
             </div>
             <div class="categories" id="education">
-                <button class="nav-button" onclick="showSubcategories('university')">University</button>
-                <button class="nav-button" onclick="showSubcategories('research')">Research Institutes</button>
-                <button class="nav-button" onclick="showSubcategories('events')">Academic Events</button>
-                <button class="nav-button" onclick="showSubcategories('libraries')">Libraries</button>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="university" style="display: none;">
+                    <input class="nav-button" type="submit" value="University">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="research institutes" style="display: none;">
+                    <input class="nav-button" type="submit" value="Research Institutes">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="academic events" style="display: none;">
+                    <input class="nav-button" type="submit" value="Academic Events">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="libraries" style="display: none;">
+                    <input class="nav-button" type="submit" value="Libraries">
+                </form>
             </div>
             <div class="categories" id="sightseeing">
-                <button class="nav-button" onclick="showSubcategories('town')">Old Town</button>
-                <button class="nav-button" onclick="showSubcategories('castles')">Castles</button>
-                <button class="nav-button" onclick="showSubcategories('stockerkahn')">Stocherkahn</button>
-                <button class="nav-button" onclick="showSubcategories('garden')">Botanical Garden</button>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="old town" style="display: none;">
+                    <input class="nav-button" type="submit" value="Old Town">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="castles" style="display: none;">
+                    <input class="nav-button" type="submit" value="Castles">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="stocherkahn" style="display: none;">
+                    <input class="nav-button" type="submit" value="Stocherkahn">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="botanical garden" style="display: none;">
+                    <input class="nav-button" type="submit" value="Botanical Garden">
+                </form>
             </div>
             <div class="categories" id="food">
-                <button class="nav-button" onclick="showSubcategories('restaurants')">Restaurants</button>
-                <button class="nav-button" onclick="showSubcategories('cafes')">Cafés</button>
-                <button class="nav-button" onclick="showSubcategories('schokomarkt')">Schokomarkt</button>
-                <button class="nav-button" onclick="showSubcategories('markets')">Markets</button>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="restaurants" style="display: none;">
+                    <input class="nav-button" type="submit" value="Restaurants">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="cafes" style="display: none;">
+                    <input class="nav-button" type="submit" value="Cafés">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="schokomarkt" style="display: none;">
+                    <input class="nav-button" type="submit" value="Schokomarkt">
+                </form>
+                <form action="/serp" method="post">
+                    <input type="text" id="query" name="query" value="markets" style="display: none;">
+                    <input class="nav-button" type="submit" value="Markets">
+                </form>
             </div>
         </div>
     </div>
@@ -82,5 +130,15 @@
         intro = intro + "<br><br>" + introSearchButtons;
         document.getElementById('intro-subcategories').innerHTML = intro;
         document.getElementById(cat).style.display = 'flex';
+    }
+
+    function webSearch(query) {
+        fetch('/serp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({"query": query})
+        })
     }
 </script>
