@@ -1,1 +1,6 @@
 Flask
+torch
+transformers
+sentence-transformers
+beautifulsoup4
+lxml
