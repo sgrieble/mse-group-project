@@ -139,6 +139,9 @@ form {
     height: 30px;
     color:azure
 }
+.nav-button:hover {
+    cursor: pointer;
+}
 @media screen and (max-width: 1100px) {
     .speech-bubble {
         left: 50%;

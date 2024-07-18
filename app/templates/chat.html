@@ -10,10 +10,10 @@
                 Just click on one of the buttons and I will tell you more.
             </p>
             <div class="categories" id="categories">
-                <button class="nav-button" onclick="showSubcategories('history')">History & Culture</button>
-                <button class="nav-button" onclick="showSubcategories('education')">Education</button>
-                <button class="nav-button" onclick="showSubcategories('sightseeing')">Sightseeing & Leisure</button>
-                <button class="nav-button" onclick="showSubcategories('food')">Food & Drinks</button>
+                <button id="button-history" class="nav-button" onclick="showSubcategories('history')">History & Culture</button>
+                <button id="button-education" class="nav-button" onclick="showSubcategories('education')">Education</button>
+                <button id="button-sightseeing" class="nav-button" onclick="showSubcategories('sightseeing')">Sightseeing & Leisure</button>
+                <button id="button-food" class="nav-button" onclick="showSubcategories('food')">Food & Drinks</button>
             </div>
             <p class="intro-categories" id="intro-subcategories"></p>
             <div class="categories" id="history">
@@ -97,7 +97,7 @@
     const categories = ['history', 'education', 'sightseeing', 'food'];
     const introHistory = "Welcome to the history and culture of Tübingen! There is a lot to see and do in Tübingen. You can explore the town's rich history, visit museums like the Stadtmuseum and the Hölderlinturm, enjoy performances at the Landestheater Tübingen, and attend concerts at venues like the Sudhaus.";
     const introEducation = "Home to the renowned University of Tübingen, this city has long been a hub of academic excellence. From pioneering research at the Max Planck Institute for Intelligent Systems and the Cyber Valley for Artificial Intelligence to dynamic public lectures through Studium Generale, Tübingen invites you to explore a world of knowledge and innovation. As an Excellence University, Tübingen continues to lead in research and education.";
-    const introSightseeing = "Tübingen is full of sights and leisure activities, and I'm here to guide you! From the historic Old Town with its beautiful half-timbered houses to the grand Hohentübingen Castle, the unique Stocherkahn boat rides on the Neckar River, and the peaceful Botanical Garden, there's a lot to see and do.";
+    const introSightseeing = "Tübingen is full of sights and leisure activities. From the historic Old Town with its beautiful half-timbered houses to the grand Hohentübingen Castle, the unique Stocherkahn boat rides on the Neckar River, and the peaceful Botanical Garden, there's a lot to see and do.";
     const introFood = "Are you ready to enjoy Tübingen's food scene? As Hölderlin, I'm here to guide you through the town's diverse restaurants, charming cafés, the vibrant local markets, and the delicious treats at the annual Schokomarkt. The Schokomarkt, held in December, is a chocolate lover's paradise with a variety of artisanal chocolates and sweets.";
     const introSearchButtons = "Click on one of the buttons to start a web search.";
 
@@ -119,7 +119,11 @@
     function showSubcategories(cat) {
         for (const c of categories) {
             document.getElementById(c).style.display = 'none';
+            const buttonId = 'button-' + c;
+            document.getElementById(buttonId).style.backgroundColor = 'teal';
         }
+        const selectedButtonId = 'button-' + cat;
+        document.getElementById(selectedButtonId).style.backgroundColor = 'rgb(161, 97, 1)';
         var intro;
         switch (cat) {
             case 'history':
