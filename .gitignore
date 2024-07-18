@@ -1,1 +1,4 @@
 .venv
+queries.txt
+results.txt
+__pycache__
