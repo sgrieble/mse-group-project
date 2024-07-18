@@ -118,6 +118,9 @@ form {
     bottom: 0;
     right: 0;
 }
+.hoelderlin:hover {
+    cursor: pointer;
+}
 .categories {
     display: none;
     padding-bottom: 10px;

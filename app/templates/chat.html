@@ -90,7 +90,7 @@
             </div>
         </div>
     </div>
-    <img class="hoelderlin" src="{{ 'static/images/hoelderlin.jpg' }}" alt="Hölderlin" onclick="showSpeechBubble()">
+    <img class="hoelderlin" src="{{ 'static/images/hoelderlin.jpg' }}" alt="Hölderlin" onclick="clickHoelderlin()">
 </div>
 <script>
     document.getElementById('categories').style.display = 'flex';
@@ -107,6 +107,13 @@
 
     function showSpeechBubble() {
         document.getElementById('speech-bubble').style.display = 'initial';
+    }
+
+    function clickHoelderlin() {
+        if (document.getElementById('speech-bubble').style.display == 'none')
+            showSpeechBubble();
+        else
+            hideSpeechBubble();
     }
 
     function showSubcategories(cat) {
