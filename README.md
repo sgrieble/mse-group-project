@@ -1,6 +1,6 @@
 # MSE Group Project
 
-## 0. Setup Project
+## Setup Project
 Create a virtual environment. After activating the virtual environment, install the dependencies:
 ```
 pip install -r requirements.txt
@@ -14,11 +14,3 @@ If you want to get the result lists of multiple queries in form of a tab-separat
 python3 app/main.py -b
 ```
 The result will be stored in `results.txt`.
-
-## 1. Web Crawling
-
-## 2. Indexing
-
-## 3. Query Processing
-
-## 4. Search Result Presentation
