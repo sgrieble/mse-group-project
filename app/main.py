@@ -3,7 +3,6 @@ import argparse
 import csv
 from query_processing import get_result_list
 
-
 app = Flask(__name__)
 
 

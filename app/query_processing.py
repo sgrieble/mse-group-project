@@ -9,8 +9,7 @@ def get_result_list(query):
     data_string = open(file_path_embed)
     data = json.load(data_string)
     
-    
-    file_path_web_data = os.path.join(os.path.dirname(__file__), 'index_data', 'embedding_data.json')
+    file_path_web_data = os.path.join(os.path.dirname(__file__), 'index_data', 'website_data.json')
     website_data_string = open(file_path_web_data)
     website_data = json.load(website_data_string)
 
