@@ -31,7 +31,7 @@ def batch_result_list(input_path="queries.txt", output_path="results.txt"):
             for result in result_list:
                 output.append({
                     "query_number": row[0],
-                    "rank": result["rank"],
+                    "rank": result["rank"]+1,
                     "link": result["link"],
                     "score": result["score"]
                 })
