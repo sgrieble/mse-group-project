@@ -4,3 +4,4 @@ transformers
 sentence-transformers
 beautifulsoup4
 lxml
+transformers

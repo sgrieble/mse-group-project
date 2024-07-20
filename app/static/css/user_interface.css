@@ -181,3 +181,12 @@ form {
         left: 20%;
     }
 }
+.answer {
+    background-color: lightyellow;
+    color: grey;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 550px;
+}

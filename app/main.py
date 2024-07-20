@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import argparse
 import csv
 from query_processing import get_result_list
+from transformers import pipeline
+
 
 app = Flask(__name__)
 
@@ -17,8 +19,22 @@ def show_result_list():#
     except:
         query = request.get_json().query
     result_list = get_result_list(query)
-    print(result_list[0])
-    return render_template('serp.html', result_list=result_list, query=query)
+    top_result_content = extract_top_result_content(result_list, top_n=10)
+    answer = get_summary(top_result_content)
+    return render_template('serp.html', result_list=result_list, query=query, answer=answer)
+
+
+def extract_top_result_content(result_list, top_n):
+    top_result_content = ""
+    for i in range(top_n):
+        top_result_content += result_list[i]['preview']
+    return top_result_content
+
+
+def get_summary(top_result_content):
+    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    result = summarizer(top_result_content, max_length=130, min_length=30, do_sample=False)
+    return result[0]['summary_text']
 
 
 def batch_result_list(input_path="queries.txt", output_path="results.txt"):
