@@ -42,7 +42,7 @@ def get_result_list(query):
     results = [
         {
             "rank": count,
-            "url": website_data[doc_id]['url'],
+            "link": website_data[doc_id]['url'],
             "score": hit['score'],
             "title": website_data[doc_id]['headline'],
             "preview": website_data[doc_id]['website_preview'],
