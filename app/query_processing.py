@@ -18,6 +18,8 @@ def get_result_list(query):
 
     all_ids = [item[0] for item in all_items]
 
+    if len(query) < 4:
+        query = query + ' Tübingen'
     query_embedding = bi_encoder.encode(query, convert_to_tensor=True)
 
     embeddings_text = [torch.tensor(doc_data['embedding_score_html']) for _, doc_data in data.items()]
