@@ -7,7 +7,7 @@ pip install -r requirements.txt
 ```
 Download the embedding_data.json and put it into app/index_data:
 ```
-(https://drive.google.com/file/d/18gihYE29E6mfDoqZmorzufEldpFl_9Lt/view?usp=sharing)
+https://drive.google.com/file/d/18gihYE29E6mfDoqZmorzufEldpFl_9Lt/view?usp=sharing
 ```
 To get the user interface of the search engine running, execute `main.py` from the root of the repository:
 ```
@@ -21,5 +21,5 @@ The result will be stored in `results.txt`.
 
 Our code of the crawler can be found in the following repository (by Julien):
 ```
-(https://github.com/julien32/modern-search-engines-crawler)
+https://github.com/julien32/modern-search-engines-crawler
 ```
