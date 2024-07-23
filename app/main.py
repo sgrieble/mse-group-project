@@ -32,9 +32,13 @@ def extract_top_result_content(result_list, top_n):
 
 
 def get_summary(top_result_content):
-    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
-    result = summarizer(top_result_content, max_length=130, min_length=30, do_sample=False)
-    return result[0]['summary_text']
+    try:
+        summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+        result = summarizer(top_result_content, max_length=130, min_length=30, do_sample=False)
+        summary = result[0]['summary_text']
+    except:
+        summary = "Ooops... There seems to be no summary available."
+    return summary
 
 
 def batch_result_list(input_path="queries.txt", output_path="results.txt"):

@@ -14,8 +14,8 @@
             <input class="search-bar" type="text" id="query" name="query" placeholder="Search info about Tübingen" value="{{query}}" required>
         </form>
     </div>
+    <div class="answer">{{answer}}</div>
     <div class="serp">
-        <div class="answer">{{answer}}</div>
             {% for result in result_list %}
             <div class="result">
                 <a class="link" href="{{result['link']}}">{{result['title']}}</a><br>
