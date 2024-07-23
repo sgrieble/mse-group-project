@@ -142,6 +142,9 @@ form {
 .nav-button:hover {
     cursor: pointer;
 }
+.nav-button:active {
+    background-color: rgb(161, 97, 1);
+}
 @media screen and (max-width: 1100px) {
     .speech-bubble {
         left: 50%;
